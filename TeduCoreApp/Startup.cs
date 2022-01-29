@@ -21,6 +21,7 @@ using TeduCoreApp.Application.Implementation;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using TeduCoreApp.Helpers;
+using TeduCoreApp.Infrastructure.Interfaces;
 
 namespace TeduCoreApp
 {
@@ -78,12 +79,19 @@ namespace TeduCoreApp
 
             services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
+            services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
+            services.AddTransient(typeof(IRepository<,>), typeof(EFRepository<,>));
+
             //Repositories
             services.AddTransient<IProductCategoryRepository,ProductCategoryRepository>();
             services.AddTransient<IFunctionRepository, FunctionRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+
+
             //Serrvices
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
             services.AddTransient<IFunctionService, FunctionService>();
+            services.AddTransient<IProductService, ProductService>();
 
         }
 

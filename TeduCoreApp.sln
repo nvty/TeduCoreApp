@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeduCoreApp", "TeduCoreApp\TeduCoreApp.csproj", "{A5DB3705-DBE2-4880-9239-F47D26857DE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeduCoreApp", "TeduCoreApp\TeduCoreApp.csproj", "{A5DB3705-DBE2-4880-9239-F47D26857DE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeduCoreApp.Infrastructure", "TeduCoreApp.Infrastructure\TeduCoreApp.Infrastructure.csproj", "{C7698AEE-7750-4D90-8ADF-EC8C7372B835}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeduCoreApp.Infrastructure", "TeduCoreApp.Infrastructure\TeduCoreApp.Infrastructure.csproj", "{C7698AEE-7750-4D90-8ADF-EC8C7372B835}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeduCoreApp.Utilities", "TeduCoreApp.Utilities\TeduCoreApp.Utilities.csproj", "{858E098F-F63C-49BD-8E95-7BFB5135A136}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeduCoreApp.Utilities", "TeduCoreApp.Utilities\TeduCoreApp.Utilities.csproj", "{858E098F-F63C-49BD-8E95-7BFB5135A136}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeduCoreApp.Data", "TeduCoreApp.Data\TeduCoreApp.Data.csproj", "{772F2407-18AB-48F7-B544-95C4FFC90866}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeduCoreApp.Data", "TeduCoreApp.Data\TeduCoreApp.Data.csproj", "{772F2407-18AB-48F7-B544-95C4FFC90866}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeduCoreApp.Data.EF", "TeduCoreApp.Data.EF\TeduCoreApp.Data.EF.csproj", "{A91ACDB8-6717-4BDA-97AD-309799903FD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeduCoreApp.Data.EF", "TeduCoreApp.Data.EF\TeduCoreApp.Data.EF.csproj", "{A91ACDB8-6717-4BDA-97AD-309799903FD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeduCoreApp.Application", "TeduCoreApp.Application\TeduCoreApp.Application.csproj", "{E429173E-743B-4368-AEBD-4A466095B475}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeduCoreApp.Application", "TeduCoreApp.Application\TeduCoreApp.Application.csproj", "{E429173E-743B-4368-AEBD-4A466095B475}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{9B9CE55E-D9E6-4C52-B697-C4FBAB581793}"
 EndProject
