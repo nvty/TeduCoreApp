@@ -7,9 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Gentelella Alela! | </title>
-
     <!-- Bootstrap -->
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <!-- Font Awesome -->
@@ -21,9 +19,8 @@
     <link href="~/lib/notifyjs/dist/styles/metro/notify-metro.css" rel="stylesheet" />
     <!-- Custom Theme Style -->
     <link href="~/admin-side/css/custom.css" rel="stylesheet" />
-    @RenderSection("Style", required:false)
+    @RenderSection("Styles", required: false)
 </head>
-
 <body class="nav-md">
     <div class="container body">
         <div class="main_container">
@@ -77,7 +74,6 @@
                             <li class="">
                                 @await Html.PartialAsync("_LoginPartial")
                             </li>
-
                             <li role="presentation" class="dropdown">
                                 <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-envelope-o"></i>
@@ -172,9 +168,8 @@
     <script src="~/lib/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="~/lib/nprogress/nprogress.js"></script>
-
-    <script src="~/lib/mustache/mustache.js"></script>
     <!-- Chart.js -->
+    <script src="~/lib/mustache/mustache.js"></script>
     <script src="~/lib/Chart.js/dist/Chart.js"></script>
     <!-- jQuery Sparklines -->
     <script src="~/lib/twbs-pagination/jquery.twbsPagination.js"></script>
@@ -197,6 +192,7 @@
     <script src="~/lib/notifyjs/dist/notify.js"></script>
     <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
     <script src="~/lib/bootbox/bootbox.js"></script>
+
     <script src="~/app/shared/tedu.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="~/admin-side/js/custom.js"></script>
