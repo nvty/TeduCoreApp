@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace TeduCoreApp.Data.EF.Migrations
 {
-    public partial class initial : Migration
+    public partial class Inital : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
