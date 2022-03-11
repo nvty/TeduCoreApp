@@ -41,11 +41,9 @@
             $('#modal-add-edit').modal('show');
 
         });
-
         $('#btnSelectImg').on('click', function () {
             $('#fileInputImage').click();
         });
-
         $("#fileInputImage").on('change', function () {
             var fileUpload = $(this).get(0);
             var files = fileUpload.files;
@@ -69,7 +67,6 @@
                 }
             });
         });
-
         $('body').on('click', '.btn-edit', function (e) {
             e.preventDefault();
             var that = $(this).data('id');
