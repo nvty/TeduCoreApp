@@ -1,9 +1,12 @@
 ﻿var productController = function () {
+    var quantityManagement = new QuantityManagement();
+
     this.initialize = function () {
         loadCategories();
         loadData();
         registerEvents();
         registerControls();
+        quantityManagement.initialize();
     }
 
     function registerEvents() {
@@ -85,7 +88,7 @@
             deleteProduct(that);
         });
 
-        $('#btnSave').on('click', function (e) {           
+        $('#btnSave').on('click', function (e) {
             saveProduct();
         });
 
@@ -138,7 +141,6 @@
                 }
             });
         });
-
     }
 
     function registerControls() {
@@ -301,7 +303,7 @@
             }
         });
     }
-   
+
     function initTreeDropDownCategory(selectedId) {
         $.ajax({
             url: "/Admin/ProductCategory/GetAll",
@@ -326,7 +328,6 @@
                 $('#ddlCategoryIdImportExcel').combotree({
                     data: arr
                 });
-
                 if (selectedId != undefined) {
                     $('#ddlCategoryIdM').combotree('setValue', selectedId);
                 }

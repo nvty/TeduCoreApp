@@ -105,6 +105,20 @@ namespace TeduCoreApp.Areas.Admin.Controllers
                 return new OkObjectResult(id);
             }
         }
+        [HttpPost]
+        public IActionResult SaveQuantities(int productId, List<ProductQuantityViewModel> quantities)
+        {
+            _productService.AddQuantity(productId, quantities);
+            _productService.Save();
+            return new OkObjectResult(quantities);
+        }
+
+        [HttpGet]
+        public IActionResult GetQuantities(int productId)
+        {
+            var quantities = _productService.GetQuantities(productId);
+            return new OkObjectResult(quantities);
+        }
 
         [HttpPost]
         public IActionResult ImportExcel(IList<IFormFile> files, int categoryId)
@@ -135,7 +149,6 @@ namespace TeduCoreApp.Areas.Admin.Controllers
             }
             return new NoContentResult();
         }
-
         [HttpPost]
         public IActionResult ExportExcel()
         {
@@ -164,7 +177,6 @@ namespace TeduCoreApp.Areas.Admin.Controllers
             }
             return new OkObjectResult(fileUrl);
         }
-
         #endregion AJAX API
     }
 }
