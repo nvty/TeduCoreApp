@@ -36,5 +36,9 @@ namespace TeduCoreApp.Application.Interfaces
 
         List<WholePriceViewModel> GetWholePrices(int productId);
 
+        List<ProductViewModel> GetLastest(int top);
+
+        List<ProductViewModel> GetHotProduct(int top);
+
     }
 }
