@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using TeduCoreApp.Application.Interfaces;
 using TeduCoreApp.Application.ViewModels.Product;
+using TeduCoreApp.Data.EF.Repositories;
 using TeduCoreApp.Data.Entities;
 using TeduCoreApp.Data.Enums;
 using TeduCoreApp.Data.IRepositories;
@@ -15,6 +16,7 @@ using TeduCoreApp.Infrastructure.Interfaces;
 using TeduCoreApp.Utilities.Constants;
 using TeduCoreApp.Utilities.Dtos;
 using TeduCoreApp.Utilities.Helpers;
+using TeduCoreApp.Application.ViewModels.Common;
 
 namespace TeduCoreApp.Application.Implementation
 {
@@ -47,7 +49,6 @@ namespace TeduCoreApp.Application.Implementation
 
         public ProductViewModel Add(ProductViewModel productVm)
         {
-
             List<ProductTag> productTags = new List<ProductTag>();
             if (!string.IsNullOrEmpty(productVm.Tags))
             {
@@ -102,6 +103,7 @@ namespace TeduCoreApp.Application.Implementation
         {
             _productRepository.Remove(id);
         }
+
         public void Dispose()
         {
             GC.SuppressFinalize(this);
@@ -247,7 +249,6 @@ namespace TeduCoreApp.Application.Implementation
             }
 
         }
-
         public void AddWholePrice(int productId, List<WholePriceViewModel> wholePrices)
         {
             _wholePriceRepository.RemoveMultiple(_wholePriceRepository.FindAll(x => x.ProductId == productId).ToList());
@@ -281,6 +282,43 @@ namespace TeduCoreApp.Application.Implementation
                 .Take(top)
                 .ProjectTo<ProductViewModel>()
                 .ToList();
+        }
+
+        public List<ProductViewModel> GetRelatedProducts(int id, int top)
+        {
+            var product = _productRepository.FindById(id);
+            return _productRepository.FindAll(x => x.Status == Status.Active
+                && x.Id != id && x.CategoryId == product.CategoryId)
+            .OrderByDescending(x => x.DateCreated)
+            .Take(top)
+            .ProjectTo<ProductViewModel>()
+            .ToList();
+        }
+
+        public List<ProductViewModel> GetUpsellProducts(int top)
+        {
+            return _productRepository.FindAll(x => x.PromotionPrice != null)
+               .OrderByDescending(x => x.DateModified)
+               .Take(top)
+               .ProjectTo<ProductViewModel>().ToList();
+        }
+
+        public List<TagViewModel> GetProductTags(int productId)
+        {
+            var tags = _tagRepository.FindAll();
+            var productTags = _productTagRepository.FindAll();
+
+            var query = from t in tags
+                        join pt in productTags
+                        on t.Id equals pt.TagId
+                        where pt.ProductId == productId
+                        select new TagViewModel()
+                        {
+                            Id = t.Id,
+                            Name = t.Name
+                        };
+            return query.ToList();
+
         }
     }
 }

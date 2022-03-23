@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TeduCoreApp.Application.ViewModels.Common;
 using TeduCoreApp.Application.ViewModels.Product;
 using TeduCoreApp.Utilities.Dtos;
 
 namespace TeduCoreApp.Application.Interfaces
 {
-    public interface IProductService:IDisposable
+    public interface IProductService : IDisposable
     {
         List<ProductViewModel> GetAll();
 
@@ -21,6 +22,8 @@ namespace TeduCoreApp.Application.Interfaces
         ProductViewModel GetById(int id);
 
         void ImportExcel(string filePath, int categoryId);
+
+
         void Save();
 
         void AddQuantity(int productId, List<ProductQuantityViewModel> quantities);
@@ -33,12 +36,16 @@ namespace TeduCoreApp.Application.Interfaces
 
         void AddWholePrice(int productId, List<WholePriceViewModel> wholePrices);
 
-
         List<WholePriceViewModel> GetWholePrices(int productId);
 
         List<ProductViewModel> GetLastest(int top);
 
         List<ProductViewModel> GetHotProduct(int top);
+        List<ProductViewModel> GetRelatedProducts(int id, int top);
+
+        List<ProductViewModel> GetUpsellProducts(int top);
+
+        List<TagViewModel> GetProductTags(int productId);
 
     }
 }
