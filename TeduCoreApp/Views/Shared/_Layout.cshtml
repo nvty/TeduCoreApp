@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicons Icon -->
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link href="~/lib/notifyjs/dist/styles/metro/notify-metro.css" rel="stylesheet" />
     <!-- CSS Style -->
     <link rel="stylesheet" href="~/client-side/style.css">
 </head>
@@ -22,7 +23,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <!-- mobile menu -->
-   @await Component.InvokeAsync("MobileMenu")
+    @await Component.InvokeAsync("MobileMenu")
     <!-- end mobile menu -->
     <div id="page">
         <!-- Header -->
@@ -46,10 +47,7 @@
         </nav>
         @RenderBody()
         <!-- Footer -->
-        <footer>
-            @Html.Partial("_Footer.cshtml")
-        </footer>
-        <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-angle-up"></i></a>
+        @Html.Partial("_Footer.cshtml")
         <!-- End Footer -->
     </div>
     <!-- JS -->
@@ -69,7 +67,15 @@
     <script type="text/javascript" src="~/client-side/js/countdown.js"></script>
     <!-- Slider Js -->
     <script type="text/javascript" src="~/client-side/js/revolution-slider.js"></script>
-
+    <script src="~/lib/notifyjs/dist/notify.js"></script>
+    <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
+    <script src="~/lib/mustache/mustache.js"></script>
+    <script src="~/client-app/shared/tedu.js"></script>
+    <script src="~/client-app/controllers/base/index.js"></script>
+    <script>
+        var baseObj = new BaseController();
+        baseObj.initialize();
+    </script>
     @RenderSection("Scripts", required: false)
 
 </body>
