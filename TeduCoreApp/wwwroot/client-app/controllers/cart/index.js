@@ -1,15 +1,15 @@
 ﻿var CartController = function () {
-   var cachedObj = {
+    var cachedObj = {
         colors: [],
         sizes: [],
     }
     this.initialize = function () {
-    $.when(loadColors(),
+        $.when(loadColors(),
             loadSizes())
-    .then(function(){
-            loadData();
+            .then(function () {
+                loadData();
             });
-      
+
         registerEvents();
     }
 
@@ -25,7 +25,7 @@
                 },
                 success: function () {
                     tedu.notify('Removing product is successful.', 'success');
-                    //loadHeaderCart();
+                    loadHeaderCart();
                     loadData();
                 }
             });
@@ -44,7 +44,7 @@
                     },
                     success: function () {
                         tedu.notify('Update quantity is successful', 'success');
-                        //loadHeaderCart();
+                        loadHeaderCart();
                         loadData();
                     }
                 });
@@ -68,12 +68,12 @@
                     data: {
                         productId: id,
                         quantity: q,
-                        color:colorId,
-                        size:sizeId
+                        color: colorId,
+                        size: sizeId
                     },
                     success: function () {
                         tedu.notify('Update quantity is successful', 'success');
-                        //loadHeaderCart();
+                        loadHeaderCart();
                         loadData();
                     }
                 });
@@ -96,12 +96,12 @@
                     data: {
                         productId: id,
                         quantity: q,
-                        color:colorId,
-                        size:sizeId
+                        color: colorId,
+                        size: sizeId
                     },
                     success: function () {
                         tedu.notify('Update quantity is successful', 'success');
-                        //loadHeaderCart();
+                        loadHeaderCart();
                         loadData();
                     }
                 });
@@ -117,7 +117,7 @@
                 type: 'post',
                 success: function () {
                     tedu.notify('Clear cart is successful', 'success');
-                   // loadHeaderCart();
+                    loadHeaderCart();
                     loadData();
                 }
             });
@@ -173,9 +173,9 @@
         sizes += "</select>";
         return sizes;
     }
-    //function loadHeaderCart() {
-    //    $("#headerCart").load("/AjaxContent/HeaderCart");
-    //}
+    function loadHeaderCart() {
+        $("#headerCart").load("/AjaxContent/HeaderCart");
+    }
     function loadData() {
         $.ajax({
             url: '/Cart/GetCart',
@@ -193,8 +193,8 @@
                             Image: item.Product.Image,
                             Price: tedu.formatNumber(item.Price, 0),
                             Quantity: item.Quantity,
-                            Colors: getColorOptions(item.Color == null? 0: item.Color.Id),
-                            Sizes:getSizeOptions(item.Size == null? "": item.Size.Id),
+                            Colors: getColorOptions(item.Color == null ? 0 : item.Color.Id),
+                            Sizes: getSizeOptions(item.Size == null ? "" : item.Size.Id),
                             Amount: tedu.formatNumber(item.Price * item.Quantity, 0),
                             Url: '/' + item.Product.SeoAlias + "-p." + item.Product.Id + ".html"
                         });
