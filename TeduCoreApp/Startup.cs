@@ -88,6 +88,8 @@ namespace TeduCoreApp
 
             services.AddTransient<IEmailSender, EmailSender>();
 
+            services.AddTransient<IViewRenderService, ViewRenderService>();
+
             services.AddTransient<DbInitializer>();
 
             services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, CustomClaimsPrincipalFactory>();
